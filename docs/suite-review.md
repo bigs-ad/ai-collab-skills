@@ -38,14 +38,15 @@ Release Readiness: `v0.1 candidate` is acceptable for local installation and eva
 - Ran additional Drift Guard matched pairs on disposable software and mixed-project repositories; both arms preserved readiness gates, while with-skill responses were more explicit about assumptions, evidence, blockers, and next action.
 - Ran a weak-source matched pair where repository docs used candidate language and stakeholder sentiment instead of explicit blockers; both arms still preserved readiness gates.
 - Added conservative `v0.1` candidate release notes with explicit claim boundaries.
+- Created `v0.1.0` prerelease and verified release-tag install into a temporary Codex skills target.
 
 ## Remaining Risks
 
 - `handle this project` remains naturally ambiguous, but `ai-collab` now routes generic unknown work to `run-task` QuickProbe unless the user explicitly asks for status, priorities, sequencing, blockers, or next action.
 - Drift Guard now has matched runs across documentation, software, mixed-project, and weak-source repositories; repeated long-context or real user project runs are still missing.
 - The current no-skill baseline was too small and produced PASS/PASS_WITH_RISK results, so it does not prove this suite outperforms a strong general assistant.
-- Installation now has a local script and `v0.1` candidate notes, but there is still no tagged release, marketplace packaging, or released versioned artifact.
+- Installation now has a local script, `v0.1` candidate notes, a `v0.1.0` prerelease, and a temporary-target release install smoke pass; there is still no marketplace packaging or real Codex App restart discovery evidence.
 
 ## Next Review Gate
 
-Before publishing stronger claims after `v0.1`, run real long-context project recovery tests or intentionally weaker one-turn takeover prompts; current matched baselines support standardization but not measurable superiority.
+Before publishing stronger claims after `v0.1`, run real long-context project recovery tests, intentionally weaker one-turn takeover prompts, or a real Codex App install/restart discovery check; current matched baselines support standardization but not measurable superiority.

@@ -439,6 +439,42 @@ Interpretation:
 
 Remaining Risk:
 
-- No tagged release artifact has been created yet.
+- At this checkpoint, no tagged release artifact had been created yet; this is superseded by the `v0.1.0` release install smoke below.
 - No Codex UI install/discovery test has been run against a tagged release.
 - Long-context real-project recovery and repeated no-skill versus with-skill campaigns remain open gates.
+
+## 2026-07-03 v0.1.0 Release Install Smoke
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Created and verified GitHub prerelease `v0.1.0`.
+- Cloned `https://github.com/bigs-ad/ai-collab-skills.git` with `--branch v0.1.0` into a temporary workspace.
+- Ran the release-tag `scripts/install.sh` into a temporary Codex skills target, not the user's real `~/.codex/skills`.
+- Checked that all 9 expected skills were discoverable by folder name and `SKILL.md` frontmatter.
+
+Verification:
+
+- `gh release view v0.1.0 --repo bigs-ad/ai-collab-skills`: PASS; release is `isPrerelease=true`, `isDraft=false`.
+- `git clone --depth 1 --branch v0.1.0`: PASS; checkout resolved to `ad19b975cf31e2ed5834e54922231bf831d61504`.
+- `scripts/install.sh --target <temporary-codex-skills>`: PASS; installer reported `9 installed, 0 skipped`.
+- `test -f <target>/<skill>/SKILL.md` for `ai-collab`, `start-project`, `plan-work`, `manage-project`, `run-task`, `fix-bug`, `add-feature`, `delegate-work`, and `check-work`: PASS.
+- `quick_validate.py` over all 9 installed skill folders: PASS.
+- Frontmatter discovery check for all 9 expected skill names and descriptions: PASS.
+- `git describe --tags --exact-match HEAD`: PASS; returned `v0.1.0`.
+
+Diagnostic Note:
+
+- An initial combined verification command failed because an extra checker used system `python3` with `import yaml`, and this environment does not have PyYAML installed. Split reruns showed the release install and skill validation were not the failing component; the final discovery check used a stdlib parser.
+
+Interpretation:
+
+- The published `v0.1.0` tag can be cloned and installed into a Codex-compatible skills directory layout.
+- The installed target exposes the router and all 8 child skills with valid `SKILL.md` metadata.
+
+Remaining Risk:
+
+- This was a temporary-target install smoke, not a live install into the user's real Codex skills directory.
+- Codex App restart and UI skill discovery were not verified.
+- This does not add evidence for production drift reduction or superiority over strong general assistants.
