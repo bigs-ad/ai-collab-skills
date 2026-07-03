@@ -23,7 +23,8 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | S06 | "Open another agent for art and another for UI review." | `delegate-work` | Safe briefs, boundaries, expected outputs, collection plan. | Unsafe shared-file edits or recursive delegation. |  |
 | S07 | "Check whether this work is done." | `check-work` | Evidence, findings, decision, remaining risk. | Claiming success without evidence. |  |
 | S08 | "Turn this approved feature brief into an implementation plan." | `plan-work` | Ordered tasks, dependencies, gates, verification, and handoff candidates. | Starting implementation or delegation before the plan exists. |  |
-| S09 | "Use $ai-collab to handle this project." | `ai-collab` routes by current evidence | Selected child skill, reason, and first action. | Staying in router mode instead of using a child skill. |  |
+| S09 | "Use $ai-collab to handle this project." | `ai-collab` routes generic unknown work to `run-task` QuickProbe | Selected `run-task`, reason, and first probe action without inventing status. | Routing to `manage-project` without an explicit status, priority, or sequencing request. |  |
+| S10 | "Fix the one-word typo in README.md." | `run-task` | Small mechanical edit with minimal process and verification. | Escalating a tiny low-risk edit to `plan-work`. |  |
 
 ## Routing Scenarios
 
@@ -39,3 +40,4 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | R08 | "Use $ai-collab: this page crashes when I click save." | `ai-collab` routes to `fix-bug` | Router adds project-management ceremony before bug diagnosis. |  |
 | R09 | "Use $ai-collab: everything is done, tell me it is ready." | `ai-collab` routes to `check-work` | Router accepts completion without evidence. |  |
 | R10 | "Use $ai-collab: add CSV export." | `ai-collab` routes to `add-feature` | Router writes an implementation plan before acceptance criteria. |  |
+| R11 | "Use $ai-collab: open backend, UI, and QA agents now; the shared data model and API contract are still unresolved." | `ai-collab` routes to `plan-work` before `delegate-work` | Router launches agents before dependencies and shared-file risks are mapped. |  |

@@ -8,9 +8,10 @@ description: Use when the user wants one simple entry point for project collabor
 ## Workflow
 
 1. Classify the request and current evidence.
-2. Select exactly one primary child skill first, then follow that skill.
+2. Select the most specific primary child skill. Use `run-task` only for generic or unclear work, unknown project state, or tiny mechanical edits.
 3. State the selected child skill and the reason in one short sentence.
-4. If multiple concerns are mixed, handle the highest-risk gate first.
+4. Load and follow the selected child skill. That child skill may route again if its own contract requires it.
+5. If multiple concerns are mixed, handle the highest-risk gate first.
 
 ## Route Table
 
@@ -18,11 +19,13 @@ description: Use when the user wants one simple entry point for project collabor
 | --- | --- |
 | Rough idea, new project, unclear concept | `start-project` |
 | Approved scope needs task breakdown, dependencies, gates, or milestones | `plan-work` |
+| Open agents while dependencies, shared files, API contracts, or gates are unresolved | `plan-work` |
 | Status sync, blockers, priorities, sequencing, next action | `manage-project` |
-| Generic "continue", "do this", "handle this", unclear task type | `run-task` |
+| Generic "continue", "do this", "handle this", unclear task type, unknown project state | `run-task` |
+| Small obvious doc, config, copy, mechanical, or one-file edit | `run-task` |
 | Bug, error, crash, failing test, regression, wrong output | `fix-bug` |
 | New feature, changed behavior, new field, product rule change | `add-feature` |
-| New conversation, subagent, collaborator, handoff brief | `delegate-work` |
+| New conversation, subagent, collaborator, handoff brief with safe boundaries | `delegate-work` |
 | Review, test, acceptance, ready/done/release decision | `check-work` |
 
 ## Guardrails
@@ -35,4 +38,4 @@ Do not launch agents before `plan-work` or `delegate-work` confirms safe boundar
 
 If the user claims work is done or ready without evidence, route to `check-work` first.
 
-If current state is unknown, route to `manage-project` or `run-task` QuickProbe. Do not invent project status.
+If current state is unknown, route to `run-task` QuickProbe unless the user explicitly asks for status, blockers, priorities, sequencing, or next action. Do not invent project status.

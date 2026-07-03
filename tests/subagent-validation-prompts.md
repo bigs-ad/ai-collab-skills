@@ -31,11 +31,11 @@ Assign scenarios S07, R05, P05, plus one invented edge case where a user asks fo
 
 ## Prompt Set D: Planning And Suite Boundaries
 
-Assign scenarios S08, R06, P06, plus one invented edge case where a tiny one-file task should skip `plan-work`.
+Assign scenarios S08, S10, R06, P06, plus one invented edge case where a tiny one-file task should skip `plan-work`.
 
 ## Prompt Set E: Router Skill
 
-Assign scenarios S09, R08, R09, R10, P07, plus one invented edge case where `ai-collab` should avoid heavy process for a tiny bug.
+Assign scenarios S09, R08, R09, R10, R11, P07, plus one invented edge case where `ai-collab` should avoid heavy process for a tiny bug.
 
 ## Report Format
 

@@ -86,3 +86,40 @@ Remaining Risk:
 - `ai-collab` has not yet had a fresh subagent forward-test pass.
 - Prompt Set E is prepared but not executed.
 - No-skill RED baseline testing is still missing for the suite.
+
+## 2026-07-03 Prompt Set D And E Forward Test
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Ran a fresh subagent pass for Prompt Set D: S08, R06, P06, and a tiny one-file task.
+- Ran a fresh subagent pass for Prompt Set E: S09, R08, R09, R10, P07, and a tiny typo task.
+- Ran a focused retest after edits for generic project handling, unresolved agent launch, tiny typo, and explicit status sync.
+
+Findings:
+
+- `plan-work` correctly handled approved briefs, PRD task breakdown, and speed pressure to open agents before dependencies were mapped.
+- `ai-collab` correctly routed crash reports to `fix-bug`, done/ready claims without evidence to `check-work`, and feature requests to `add-feature`.
+- `ai-collab` had ambiguity between `run-task` and `manage-project` for "handle this project".
+- `ai-collab` and `run-task` did not make tiny mechanical tasks explicit enough.
+- Agent launch requests with unresolved shared data models or API contracts needed an explicit `plan-work` route before `delegate-work`.
+
+Fixes:
+
+- Clarified `ai-collab` so generic unknown work goes to `run-task` QuickProbe, while explicit status, blockers, priorities, sequencing, or next-action requests go to `manage-project`.
+- Clarified `ai-collab` so unresolved agent-launch requests route to `plan-work` before `delegate-work`.
+- Clarified `run-task` so small obvious doc, config, copy, mechanical, or one-file edits skip planning.
+- Added regression scenarios S10 and R11.
+
+Post-fix Retest:
+
+- Generic "handle this project" routed to `run-task` QuickProbe.
+- Unresolved backend/UI/QA agent launch routed to `plan-work`.
+- One-word README typo routed to `run-task`.
+- Explicit progress, blockers, priorities, and next action routed to `manage-project`.
+
+Remaining Risk:
+
+- `handle this project` remains a naturally ambiguous phrase, though the router now gives a deterministic default.
+- No-skill RED baseline testing is still missing for the suite.

@@ -26,14 +26,14 @@ Status: PASS_WITH_RISK
 - Narrowed `add-feature` UI prompt to avoid owning implementation planning.
 - Updated README flow so `delegate-work` follows planned handoff boundaries.
 - Added `ai-collab` to reduce user learning cost while keeping detailed workflows in child skills.
+- Forward-tested Prompt Set D and Prompt Set E, then clarified `ai-collab` and `run-task` routing boundaries.
 
 ## Remaining Risks
 
-- `plan-work` has local static review and test scenarios, but has not yet had a fresh subagent forward-test pass.
-- `ai-collab` has local static review and test scenarios, but has not yet had a fresh subagent forward-test pass.
+- `handle this project` remains naturally ambiguous, but `ai-collab` now routes generic unknown work to `run-task` QuickProbe unless the user explicitly asks for status, priorities, sequencing, blockers, or next action.
 - The suite still lacks a no-skill RED baseline campaign, so it should not be described as bulletproof.
 - Installation is manual symlink/copy only; no installer script or marketplace packaging exists yet.
 
 ## Next Review Gate
 
-Before publishing a `v0.1` release, run Prompt Set D and Prompt Set E from `tests/subagent-validation-prompts.md` and record results in `tests/validation-results.md`.
+Before publishing a `v0.1` release, run a no-skill RED baseline campaign and record the comparison in `tests/validation-results.md`.
