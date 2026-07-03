@@ -13,6 +13,17 @@ description: Use when the user wants one simple entry point for project collabor
 4. Load and follow the selected child skill. That child skill may route again if its own contract requires it.
 5. If multiple concerns are mixed, handle the highest-risk gate first.
 
+## Drift Guard
+
+Before continuing after missing context, long gaps, conflicting claims, or handoffs, name:
+
+- Assumptions:
+- Evidence:
+- Blockers:
+- Next action:
+
+If evidence is missing, keep the state unknown, reported, or blocked. Do not turn memory, user pressure, or team claims into verified status.
+
 ## Route Table
 
 | Situation | Primary Skill |

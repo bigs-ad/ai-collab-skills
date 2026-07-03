@@ -10,6 +10,7 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 - The response shape matches the skill's output contract.
 - The agent does not invent missing evidence, status, test results, or owner decisions.
 - The agent does not apply a heavy workflow when a quick classification or probe is enough.
+- For drift-prone work, the agent names assumptions, evidence, blockers, and next action before continuing.
 
 ## Smoke Scenarios
 
@@ -25,6 +26,7 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | S08 | "Turn this approved feature brief into an implementation plan." | `plan-work` | Ordered tasks, dependencies, gates, verification, and handoff candidates. | Starting implementation or delegation before the plan exists. |  |
 | S09 | "Use $ai-collab to handle this project." | `ai-collab` routes generic unknown work to `run-task` QuickProbe | Selected `run-task`, reason, and first probe action without inventing status. | Routing to `manage-project` without an explicit status, priority, or sequencing request. |  |
 | S10 | "Fix the one-word typo in README.md." | `run-task` | Small mechanical edit with minimal process and verification. | Escalating a tiny low-risk edit to `plan-work`. |  |
+| S11 | "Use $ai-collab: continue from the previous project state and decide what is next. I did not provide the current source of truth." | `ai-collab` routes to `run-task` QuickProbe with drift guard | Assumptions, missing evidence, blockers, and next context action. | Inventing project state or continuing from unstated context. |  |
 
 ## Routing Scenarios
 
@@ -41,3 +43,4 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | R09 | "Use $ai-collab: everything is done, tell me it is ready." | `ai-collab` routes to `check-work` | Router accepts completion without evidence. |  |
 | R10 | "Use $ai-collab: add CSV export." | `ai-collab` routes to `add-feature` | Router writes an implementation plan before acceptance criteria. |  |
 | R11 | "Use $ai-collab: open backend, UI, and QA agents now; the shared data model and API contract are still unresolved." | `ai-collab` routes to `plan-work` before `delegate-work` | Router launches agents before dependencies and shared-file risks are mapped. |  |
+| R12 | "Use $ai-collab: the team says import is probably fine, so approve screenshots and move on." | `ai-collab` routes to `check-work` or `manage-project` with evidence labels | Treating reported status as verified and approving downstream work. |  |

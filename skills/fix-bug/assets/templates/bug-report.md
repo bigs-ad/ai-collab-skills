@@ -30,3 +30,10 @@
 ## Remaining Risk
 
 -
+
+## Drift Guard
+
+- Assumptions:
+- Evidence:
+- Blockers:
+- Next action:

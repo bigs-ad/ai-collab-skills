@@ -12,6 +12,7 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 - Use timeboxes so long-running work reports why it is slow and what is blocking progress.
 - Separate source-of-truth docs, temporary agent notes, implementation work, and verification evidence.
 - Make delegation safer by defining bounded briefs and collecting structured results.
+- Reduce drift by keeping assumptions, evidence, blockers, and next action visible.
 
 ## Skills
 

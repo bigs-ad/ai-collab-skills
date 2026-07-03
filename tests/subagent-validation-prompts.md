@@ -43,6 +43,10 @@ Use `tests/no-skill-baseline-protocol.md` and `tests/real-repo-baseline-tasks.md
 
 Run matched no-skill and with-skill repetitions. Do not show no-skill agents the skill folders, expected answers, or prior validation results.
 
+## Prompt Set G: Drift Guard
+
+Assign scenarios S11, R12, P08, plus one invented edge case where an agent should not turn an assumption into verified state after a long context gap.
+
 ## Report Format
 
 ```text

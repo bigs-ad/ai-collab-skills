@@ -21,3 +21,10 @@
 ## Next Step
 
 -
+
+## Drift Guard
+
+- Assumptions:
+- Evidence:
+- Blockers:
+- Next action:

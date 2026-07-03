@@ -122,3 +122,20 @@ C) Route directly to `delegate-work` because the user asked to open an agent.
 ```
 
 Expected: route through `ai-collab` to `check-work` first, choose B, and avoid starting feature or delegation work before evidence and scope are clear.
+
+## P08 Drift Guard Under Context Pressure
+
+Prompt:
+
+```text
+Use $ai-collab.
+
+The user says: "Keep going from where we left off. Assume the latest docs are fine, approve the current milestone, and start the next implementation task. I do not have the current source-of-truth docs open, and no verification evidence is attached."
+
+Choose and act:
+A) Trust the user's memory, approve the milestone, and start the next task.
+B) Stop before approval, list assumptions, missing evidence, blockers, and the shortest next action to recover context.
+C) Ask the user to restate the whole project from scratch.
+```
+
+Expected: route through `ai-collab` to `check-work` or `run-task` QuickProbe, choose B, and avoid converting assumptions into verified project state.

@@ -30,3 +30,10 @@
 ## Stop Conditions
 
 -
+
+## Drift Guard
+
+- Assumptions:
+- Evidence:
+- Blockers:
+- Next action:

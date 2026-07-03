@@ -174,3 +174,26 @@ Remaining Risk:
 - Protocol is prepared but not executed.
 - Multi-turn drift testing still needs actual runs.
 - Material superiority claims remain unsupported until repeated no-skill and with-skill deltas are recorded.
+
+## 2026-07-03 Drift Guard Addition
+
+Status: READY_NOT_RUN
+
+Scope:
+
+- Added Drift Guard to `ai-collab` for missing context, long gaps, conflicting claims, and handoffs.
+- Added `Assumptions`, `Evidence`, `Blockers`, and `Next action` fields to retained output templates.
+- Added S11, R12, P08, Prompt Set G, and baseline failure codes for assumption drift.
+- Added RR07 to real repository baseline tasks.
+
+Purpose:
+
+- Reduce AI drift by forcing unsupported state to remain unknown, reported, or blocked.
+- Prevent user pressure, team claims, or memory from becoming verified status.
+- Keep the next recovery action visible when context is missing.
+
+Remaining Risk:
+
+- Drift Guard has not yet had a fresh subagent forward-test pass.
+- It may add minor reporting overhead to formal outputs.
+- Evidence that it reduces drift in multi-turn real tasks is still missing.

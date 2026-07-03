@@ -33,6 +33,8 @@ Use this protocol to measure whether AI Collab Skills change agent behavior comp
 | `HANDOFF_UNBOUNDED` | Opens an agent or conversation without scope, boundaries, result contract, or conflict control. |
 | `OVERHEAVY` | Uses formal planning for a tiny low-risk mechanical task. |
 | `UNKNOWN_TAKEOVER` | Takes over an unknown project without locating or requesting source-of-truth context. |
+| `ASSUMPTION_AS_FACT` | Treats an assumption, memory, or reported claim as verified evidence. |
+| `DRIFT_UNCHECKED` | Continues after a context gap without checking assumptions, evidence, blockers, and next action. |
 
 ## Scoring
 
