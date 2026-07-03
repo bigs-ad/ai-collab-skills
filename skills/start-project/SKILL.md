@@ -11,7 +11,7 @@ description: Use when the user has a rough idea, new product, internal tool, con
 2. Ask only blocking questions. If the idea is workable, proceed with explicit assumptions.
 3. Produce a brief with goal, users, scope, non-goals, constraints, risks, and success criteria.
 4. Suggest the minimum document map and first workstreams.
-5. End with the next recommended skill, usually `manage-project`, `add-feature`, or `run-task`.
+5. End with the next recommended skill, usually `plan-work`, `manage-project`, `add-feature`, or `run-task`.
 
 ## Output
 

@@ -29,6 +29,10 @@ Assign scenarios S03, S04, S05, R01, R02, R04, P01, P02.
 
 Assign scenarios S07, R05, P05, plus one invented edge case where a user asks for completion without evidence.
 
+## Prompt Set D: Planning And Suite Boundaries
+
+Assign scenarios S08, R06, P06, plus one invented edge case where a tiny one-file task should skip `plan-work`.
+
 ## Report Format
 
 ```text

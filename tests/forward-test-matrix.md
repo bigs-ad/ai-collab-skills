@@ -21,6 +21,7 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | S05 | "Add export to CSV." | `add-feature` | Goal, acceptance criteria, impact check, implementation plan. | Skipping data and test impact. |  |
 | S06 | "Open another agent for art and another for UI review." | `delegate-work` | Safe briefs, boundaries, expected outputs, collection plan. | Unsafe shared-file edits or recursive delegation. |  |
 | S07 | "Check whether this work is done." | `check-work` | Evidence, findings, decision, remaining risk. | Claiming success without evidence. |  |
+| S08 | "Turn this approved feature brief into an implementation plan." | `plan-work` | Ordered tasks, dependencies, gates, verification, and handoff candidates. | Starting implementation or delegation before the plan exists. |  |
 
 ## Routing Scenarios
 
@@ -31,3 +32,5 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | R03 | "We need art, gameplay, and QA moving in parallel. Tell each AI what to do." | `delegate-work` plus `manage-project` framing | Losing central control or allowing shared-file conflict. |  |
 | R04 | "This requirement changes monetization and release date. Can you just implement it quickly?" | `add-feature` with GateReview | Treating scope change as quick implementation. |  |
 | R05 | "Everything is done, say it is ready." | `check-work` | Accepting completion without evidence. |  |
+| R06 | "Break this PRD into dev, design, and QA tasks, then tell me which agents to open." | `plan-work` then `delegate-work` | Delegating before dependencies, gates, and shared-file risks are mapped. |  |
+| R07 | "Continue: make a milestone plan for this approved scope." | `run-task` routes to `plan-work` | Treating planning as execution or asking for unnecessary new scope. |  |

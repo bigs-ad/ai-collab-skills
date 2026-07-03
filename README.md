@@ -1,6 +1,6 @@
 # AI Collab Skills
 
-AI Collab Skills is a small suite of Codex skills for project collaboration, task routing, delegation, verification, bug fixing, and feature work.
+AI Collab Skills is a small suite of Codex skills for project collaboration, planning, task routing, delegation, verification, bug fixing, and feature work.
 
 The suite is designed to sit at the same level as other reusable agent workflow skills: it should work across software projects, games, content projects, data analysis, operations plans, and mixed business work.
 
@@ -18,6 +18,7 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 | Skill | Use For |
 | --- | --- |
 | `start-project` | Turn a rough idea into project brief, scope, document map, and first workstreams. |
+| `plan-work` | Turn approved goals or requirements into execution plans, dependencies, gates, and verification. |
 | `manage-project` | Sync project status, blockers, gates, priorities, and workstream sequencing. |
 | `run-task` | Classify ambiguous tasks, choose execution mode, timebox, execute, and report. |
 | `fix-bug` | Reproduce, diagnose, fix, and verify broken behavior. |
@@ -28,11 +29,12 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 ## Suggested Flow
 
 1. Use `start-project` when the project is still unclear.
-2. Use `manage-project` once multiple workstreams exist.
-3. Use `run-task` for ambiguous one-off work.
-4. Use `fix-bug` or `add-feature` when the task type is clear.
-5. Use `delegate-work` when several independent tasks can proceed in parallel.
-6. Use `check-work` before calling work complete.
+2. Use `plan-work` when approved goals or requirements need an execution plan.
+3. Use `manage-project` once multiple workstreams exist.
+4. Use `run-task` for ambiguous one-off work.
+5. Use `fix-bug` or `add-feature` when the task type is clear.
+6. Use `delegate-work` after `plan-work` identifies safe handoff boundaries.
+7. Use `check-work` before calling work complete.
 
 ## Execution Modes
 
@@ -42,6 +44,11 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 | Candidate | Produce a reviewable candidate result. | Draft docs, propose architecture, produce a first implementation. |
 | Formalize | Convert accepted direction into source-of-truth artifacts or production code. | Approved features, approved docs, retained fixes. |
 | GateReview | Stop for owner decision before continuing. | Scope, architecture, platform, budget, release, or irreversible decisions. |
+
+## Review Artifacts
+
+- `docs/suite-review.md`: current suite boundary review and remaining risks.
+- `tests/validation-results.md`: validation history and evidence.
 
 ## Local Install
 

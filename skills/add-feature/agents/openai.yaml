@@ -1,4 +1,4 @@
 interface:
   display_name: "Add Feature"
   short_description: "Shape and implement new features"
-  default_prompt: "Use $add-feature to clarify this feature request, define acceptance criteria, and plan implementation."
+  default_prompt: "Use $add-feature to clarify this feature request, define acceptance criteria, and check impact."

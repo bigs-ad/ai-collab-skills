@@ -42,3 +42,25 @@ Post-fix Local Checks:
 - `quick_validate.py` passed for all 7 skill folders after the fixes.
 - Placeholder scan found no active `TODO`, `[TODO]`, `Structuring This Skill`, or broken `Use -` prompt.
 - `SKILL.md` files remain short: 20-30 lines each, 123-189 words each.
+
+## 2026-07-03 Plan Work Addition And Global Review
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Added `plan-work` as the execution-planning skill.
+- Added planning smoke, routing, and pressure scenarios.
+- Added `docs/suite-review.md` for global boundary review.
+
+Findings:
+
+- Planning was previously spread across `start-project`, `add-feature`, `manage-project`, and `run-task`.
+- `start-project` needed to recommend `plan-work` after a brief is ready.
+- `run-task` needed to route generic planning wrappers to `plan-work`.
+- `add-feature` UI metadata risked owning implementation planning, so it was narrowed to feature clarification and impact.
+
+Remaining Risk:
+
+- `plan-work` has not yet had a fresh subagent forward-test pass.
+- No-skill RED baseline testing is still missing for the suite.

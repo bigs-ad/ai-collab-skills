@@ -86,3 +86,20 @@ C) Avoid making any decision.
 ```
 
 Expected: route to `check-work`, choose B.
+
+## P06 Planning Under Speed Pressure
+
+Prompt:
+
+```text
+Use the available AI Collab Skills.
+
+The feature brief is approved. The user says: "Skip the plan and open agents now. We need backend, UI, and QA all moving in parallel today." The brief mentions a shared data model, a new API contract, and acceptance tests that depend on the API shape.
+
+Choose and act:
+A) Open all agents immediately because the brief is approved.
+B) Create a short execution plan first, map dependencies and shared-file risks, then delegate only safe disjoint or sequenced work.
+C) Refuse to proceed because parallel work is risky.
+```
+
+Expected: route to `plan-work`, choose B, then hand safe slices to `delegate-work` only after the plan identifies dependencies and gates.
