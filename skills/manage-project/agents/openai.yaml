@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Project"
+  short_description: "Track status and next steps"
+  default_prompt: "Use $manage-project to sync project status, blockers, priorities, and next steps."

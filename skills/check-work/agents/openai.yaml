@@ -1,0 +1,4 @@
+interface:
+  display_name: "Check Work"
+  short_description: "Review, test, and accept work"
+  default_prompt: "Use $check-work to review this result, choose verification, and decide whether it is acceptable."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run Task"
+  short_description: "Route and execute a task safely"
+  default_prompt: "Use $run-task to classify this task, choose the right execution mode, and complete it."

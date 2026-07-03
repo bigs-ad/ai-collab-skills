@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fix Bug"
+  short_description: "Reproduce, fix, and verify bugs"
+  default_prompt: "Use $fix-bug to reproduce this issue, find the cause, fix it, and verify the regression."
