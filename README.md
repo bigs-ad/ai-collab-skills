@@ -14,7 +14,7 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 - Use timeboxes so long-running work reports why it is slow and what is blocking progress.
 - Separate source-of-truth docs, temporary agent notes, implementation work, and verification evidence.
 - Make delegation safer by defining bounded briefs and collecting structured results.
-- Reduce drift by keeping assumptions, evidence, blockers, and next action visible.
+- Make drift easier to detect by keeping assumptions, evidence, blockers, and next action visible.
 
 ## Skills
 
@@ -55,6 +55,7 @@ Advanced users can call child skills directly:
 
 ## Review Artifacts
 
+- `docs/releases/v0.1.md`: conservative v0.1 candidate release notes and claim boundaries.
 - `docs/suite-review.md`: current suite boundary review and remaining risks.
 - `tests/validation-results.md`: validation history and evidence.
 - `tests/no-skill-baseline-protocol.md`: repeatable no-skill versus with-skill baseline protocol.
@@ -93,6 +94,6 @@ Repeat for every child skill you want the router to use.
 
 ## Publication Status
 
-This repository skeleton is ready for local iteration under the MIT License. Forward-test and baseline evidence is recorded in `tests/validation-results.md`.
+This repository is a `v0.1` candidate for local installation and evaluation under the MIT License. Forward-test and baseline evidence is recorded in `tests/validation-results.md`, with release claim boundaries in `docs/releases/v0.1.md`.
 
-Before describing the suite as mature or bulletproof, run the stronger baseline campaign in `tests/no-skill-baseline-protocol.md`.
+Do not describe the suite as mature, bulletproof, proven to reduce AI drift in production, or proven to outperform strong general assistants. Current evidence supports structured collaboration, explicit evidence gates, and more consistent reporting of assumptions, evidence, blockers, and next action.

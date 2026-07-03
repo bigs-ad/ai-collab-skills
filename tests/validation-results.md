@@ -413,3 +413,32 @@ Remaining Risk:
 - Sample size is still one weak-source pair.
 - The weak-source fixture still had enough missing-evidence signals for a strong general agent to infer not-ready state.
 - Next useful test is not more of the same; it should be long-context recovery, one-turn unknown takeover, or real project history where relevant state is split across conversation and files.
+
+## 2026-07-03 v0.1 Candidate Release Prep
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Added `docs/releases/v0.1.md`.
+- Updated English and Chinese README publication status to `v0.1 candidate`.
+- Preserved conservative claim boundaries: structured collaboration and evidence gates are supported; production drift reduction and superiority over strong general assistants are not proven.
+- Updated `docs/suite-review.md` to distinguish candidate release readiness from stronger maturity claims.
+
+Verification:
+
+- `quick_validate.py` over all 9 skill folders: PASS.
+- `bash -n scripts/install.sh`: PASS.
+- Placeholder/residual scan: PASS_WITH_NOTES; matches were historical validation notes only.
+- `git diff --check`: PASS.
+
+Interpretation:
+
+- The suite is ready to present as an early local-install candidate.
+- The suite is not ready to present as a mature, bulletproof, marketplace-ready, or superiority-proven workflow system.
+
+Remaining Risk:
+
+- No tagged release artifact has been created yet.
+- No Codex UI install/discovery test has been run against a tagged release.
+- Long-context real-project recovery and repeated no-skill versus with-skill campaigns remain open gates.
