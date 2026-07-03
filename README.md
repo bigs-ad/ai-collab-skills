@@ -1,5 +1,7 @@
 # AI Collab Skills
 
+[中文说明](README.zh-CN.md)
+
 AI Collab Skills is a small suite of Codex skills for project collaboration, planning, routing, delegation, verification, bug fixing, and feature work.
 
 The suite is designed to sit at the same level as other reusable agent workflow skills: it should work across software projects, games, content projects, data analysis, operations plans, and mixed business work.
