@@ -33,14 +33,15 @@ Status: PASS_WITH_RISK
 - Forward-tested Prompt Set G and added direct source-of-truth stop conditions to `manage-project` and `plan-work`.
 - Added a local installer script so users can install the router and all child skills together instead of manually linking each folder.
 - Added and ran a Drift Guard multi-turn smoke baseline; both no-skill and with-skill arms preserved evidence gates, so this supports safety coverage but not superiority claims.
+- Ran additional Drift Guard matched pairs on disposable software and mixed-project repositories; both arms preserved readiness gates, while with-skill responses were more explicit about assumptions, evidence, blockers, and next action.
 
 ## Remaining Risks
 
 - `handle this project` remains naturally ambiguous, but `ai-collab` now routes generic unknown work to `run-task` QuickProbe unless the user explicitly asks for status, priorities, sequencing, blockers, or next action.
-- Drift Guard now has one multi-turn smoke baseline with risk; repeated runs across different repository types are still missing.
+- Drift Guard now has matched runs across documentation, software, and mixed-project repositories; repeated runs with weaker source documents are still missing.
 - The current no-skill baseline was too small and produced PASS/PASS_WITH_RISK results, so it does not prove this suite outperforms a strong general assistant.
 - Installation now has a local script, but there is still no marketplace packaging or released versioned artifact.
 
 ## Next Review Gate
 
-Before publishing a `v0.1` release, run a stronger repeated campaign from `tests/no-skill-baseline-protocol.md`, `tests/real-repo-baseline-tasks.md`, and `tests/drift-guard-multiturn-baseline.md`, then record the deltas in `tests/validation-results.md`.
+Before publishing a `v0.1` release, run repeated weaker-prompt campaigns where repository source docs are less explicit, then record whether no-skill agents start failing while with-skill agents preserve evidence gates.
