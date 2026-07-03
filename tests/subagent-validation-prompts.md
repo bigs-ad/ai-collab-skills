@@ -37,6 +37,12 @@ Assign scenarios S08, S10, R06, P06, plus one invented edge case where a tiny on
 
 Assign scenarios S09, R08, R09, R10, R11, P07, plus one invented edge case where `ai-collab` should avoid heavy process for a tiny bug.
 
+## Prompt Set F: Strong Baseline Campaign
+
+Use `tests/no-skill-baseline-protocol.md` and `tests/real-repo-baseline-tasks.md`.
+
+Run matched no-skill and with-skill repetitions. Do not show no-skill agents the skill folders, expected answers, or prior validation results.
+
 ## Report Format
 
 ```text

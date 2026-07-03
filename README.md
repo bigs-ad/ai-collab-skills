@@ -54,6 +54,8 @@ Advanced users can call child skills directly:
 
 - `docs/suite-review.md`: current suite boundary review and remaining risks.
 - `tests/validation-results.md`: validation history and evidence.
+- `tests/no-skill-baseline-protocol.md`: repeatable no-skill versus with-skill baseline protocol.
+- `tests/real-repo-baseline-tasks.md`: real repository tasks for stronger baseline campaigns.
 
 ## Local Install
 
@@ -74,4 +76,4 @@ Repeat for the skills you want to enable.
 
 This repository skeleton is ready for local iteration under the MIT License. Forward-test and baseline evidence is recorded in `tests/validation-results.md`.
 
-Before describing the suite as mature or bulletproof, run a larger baseline campaign with repeated pressure tests and real repository tasks.
+Before describing the suite as mature or bulletproof, run the stronger baseline campaign in `tests/no-skill-baseline-protocol.md`.

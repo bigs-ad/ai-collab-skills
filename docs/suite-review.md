@@ -28,6 +28,7 @@ Status: PASS_WITH_RISK
 - Added `ai-collab` to reduce user learning cost while keeping detailed workflows in child skills.
 - Forward-tested Prompt Set D and Prompt Set E, then clarified `ai-collab` and `run-task` routing boundaries.
 - Ran a no-skill baseline campaign; it did not produce clear RED failures, so claims about measurable improvement must stay conservative.
+- Added stronger baseline protocol and real repository task set for repeated no-skill versus with-skill testing.
 
 ## Remaining Risks
 
@@ -37,4 +38,4 @@ Status: PASS_WITH_RISK
 
 ## Next Review Gate
 
-Before publishing a `v0.1` release, run a larger baseline campaign with more repetitions, weaker prompts, and real repository tasks.
+Before publishing a `v0.1` release, run `tests/no-skill-baseline-protocol.md` with the tasks in `tests/real-repo-baseline-tasks.md`, then record the deltas in `tests/validation-results.md`.

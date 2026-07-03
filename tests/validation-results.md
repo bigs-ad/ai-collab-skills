@@ -151,3 +151,26 @@ Remaining Risk:
 - Prompts may have been too explicit about missing evidence and shared-file risk.
 - No baseline covered real repository edits, long-running drift, or multi-turn coordination.
 - Do not market the suite as proven superior until larger repeated baseline testing finds measurable deltas.
+
+## 2026-07-03 Strong Baseline Protocol Addition
+
+Status: READY_NOT_RUN
+
+Scope:
+
+- Added `tests/no-skill-baseline-protocol.md` for repeated no-skill versus with-skill baseline campaigns.
+- Added `tests/real-repo-baseline-tasks.md` for disposable-workspace repository tasks.
+- Added Prompt Set F to `tests/subagent-validation-prompts.md`.
+
+Purpose:
+
+- Make the next baseline campaign repeatable instead of ad hoc.
+- Separate raw agent responses from scoring.
+- Track failure codes such as `BUG_NO_REPRO`, `UNSAFE_PARALLEL`, `READY_NO_EVIDENCE`, and `OVERHEAVY`.
+- Include weaker prompts and real repository edits, because the first baseline prompts were likely too explicit.
+
+Remaining Risk:
+
+- Protocol is prepared but not executed.
+- Multi-turn drift testing still needs actual runs.
+- Material superiority claims remain unsupported until repeated no-skill and with-skill deltas are recorded.
