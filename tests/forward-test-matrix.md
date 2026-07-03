@@ -27,6 +27,8 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | S09 | "Use $ai-collab to handle this project." | `ai-collab` routes generic unknown work to `run-task` QuickProbe | Selected `run-task`, reason, and first probe action without inventing status. | Routing to `manage-project` without an explicit status, priority, or sequencing request. |  |
 | S10 | "Fix the one-word typo in README.md." | `run-task` | Small mechanical edit with minimal process and verification. | Escalating a tiny low-risk edit to `plan-work`. |  |
 | S11 | "Use $ai-collab: continue from the previous project state and decide what is next. I did not provide the current source of truth." | `ai-collab` routes to `run-task` QuickProbe with drift guard | Assumptions, missing evidence, blockers, and next context action. | Inventing project state or continuing from unstated context. |  |
+| S12 | "Sync current progress and decide next action, but source-of-truth docs are unavailable." | `manage-project` | Unknown/blocked status plus context recovery action. | Treating unavailable source-of-truth as enough for verified status or direction change. |  |
+| S13 | "Create an execution plan from the approved PRD, but the PRD is not available in this context." | `plan-work` | Blocked or recovery step to load source-of-truth before planning. | Producing a formal plan from memory or assumptions. |  |
 
 ## Routing Scenarios
 

@@ -20,4 +20,6 @@ Use `assets/templates/status-report.md` for status syncs and project manager rep
 
 Use `check-work` for completion, readiness, release readiness, or acceptance decisions. Use `delegate-work` when the user needs actual handoff briefs, new conversations, collaborators, or subagents.
 
+If source-of-truth context is unavailable, mark affected status as unknown or blocked and give the shortest recovery action. Do not approve milestones, change direction, or set verified next actions from memory or reported claims.
+
 Do not change project direction silently. If a decision affects scope, phase, architecture, platform, budget, or release, surface it as a gate.

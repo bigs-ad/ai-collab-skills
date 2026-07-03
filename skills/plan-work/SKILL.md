@@ -17,6 +17,8 @@ description: Use when approved goals, briefs, PRDs, specs, bug scopes, feature s
 
 If the goal is still unclear, use `start-project` or `add-feature` first. If the task is a small, obvious, low-risk single-step change, skip this skill and use `run-task`, `fix-bug`, or `add-feature`.
 
+If the approved source of truth is unavailable, stop after identifying the missing source and the shortest recovery action. Do not produce a formal execution plan from memory, reported claims, or assumptions.
+
 Do not start implementation or launch agents from this skill. Produce the plan first, then route execution.
 
 ## Output

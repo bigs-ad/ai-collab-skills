@@ -197,3 +197,31 @@ Remaining Risk:
 - Drift Guard has not yet had a fresh subagent forward-test pass.
 - It may add minor reporting overhead to formal outputs.
 - Evidence that it reduces drift in multi-turn real tasks is still missing.
+
+## 2026-07-03 Drift Guard Forward Test
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Ran a fresh subagent pass for Prompt Set G: S11, R12, P08, and an invented blocked-audit resume edge case.
+- Subagent read relevant `skills/` files only and did not edit files.
+
+Findings:
+
+- `ai-collab` Drift Guard correctly required assumptions, evidence, blockers, and next action before continuing after missing context or unsupported claims.
+- `check-work` correctly blocked approval, milestone readiness, and audit resolution without evidence.
+- `ai-collab` correctly rejected team claims such as "probably fine" as verified status.
+- Risk: direct `manage-project` calls could continue too far when source-of-truth docs are unavailable.
+- Risk: direct `plan-work` calls could produce plans from missing source-of-truth context unless explicitly stopped.
+
+Fixes:
+
+- Added S12 and S13 regression scenarios.
+- Added a `manage-project` stop condition: unavailable source-of-truth keeps affected status unknown or blocked and allows only recovery action.
+- Added a `plan-work` stop condition: unavailable approved source-of-truth blocks formal execution planning.
+
+Remaining Risk:
+
+- Prompt Set G was one focused pass, not repeated.
+- Multi-turn real-task drift evidence is still missing.

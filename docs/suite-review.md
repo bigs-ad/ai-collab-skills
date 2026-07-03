@@ -30,11 +30,12 @@ Status: PASS_WITH_RISK
 - Ran a no-skill baseline campaign; it did not produce clear RED failures, so claims about measurable improvement must stay conservative.
 - Added stronger baseline protocol and real repository task set for repeated no-skill versus with-skill testing.
 - Added Drift Guard fields and scenarios to reduce assumption drift after context gaps, handoffs, and unsupported readiness claims.
+- Forward-tested Prompt Set G and added direct source-of-truth stop conditions to `manage-project` and `plan-work`.
 
 ## Remaining Risks
 
 - `handle this project` remains naturally ambiguous, but `ai-collab` now routes generic unknown work to `run-task` QuickProbe unless the user explicitly asks for status, priorities, sequencing, blockers, or next action.
-- Drift Guard is locally specified but has not yet had a fresh subagent forward-test pass.
+- Drift Guard passed a focused subagent forward-test with risk; multi-turn real-task evidence is still missing.
 - The current no-skill baseline was too small and produced PASS/PASS_WITH_RISK results, so it does not prove this suite outperforms a strong general assistant.
 - Installation is manual symlink/copy only; no installer script or marketplace packaging exists yet.
 
