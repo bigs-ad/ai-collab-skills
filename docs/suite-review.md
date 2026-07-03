@@ -8,6 +8,7 @@ Status: PASS_WITH_RISK
 
 | Skill | Owns | Must Not Own |
 | --- | --- | --- |
+| `ai-collab` | One-entry routing and highest-risk-first child skill selection. | Detailed child workflows or final decisions without loading the selected child skill. |
 | `start-project` | Rough idea to project brief and first workstreams. | Detailed execution plans or implementation. |
 | `plan-work` | Approved scope to task breakdown, dependencies, gates, and verification plan. | Scope discovery, direct execution, or launching agents. |
 | `manage-project` | Status sync, sequencing, blockers, and next-action control. | Acceptance decisions or handoff briefs. |
@@ -24,13 +25,15 @@ Status: PASS_WITH_RISK
 - Updated `start-project` to recommend `plan-work` when a brief needs execution planning.
 - Narrowed `add-feature` UI prompt to avoid owning implementation planning.
 - Updated README flow so `delegate-work` follows planned handoff boundaries.
+- Added `ai-collab` to reduce user learning cost while keeping detailed workflows in child skills.
 
 ## Remaining Risks
 
 - `plan-work` has local static review and test scenarios, but has not yet had a fresh subagent forward-test pass.
+- `ai-collab` has local static review and test scenarios, but has not yet had a fresh subagent forward-test pass.
 - The suite still lacks a no-skill RED baseline campaign, so it should not be described as bulletproof.
 - Installation is manual symlink/copy only; no installer script or marketplace packaging exists yet.
 
 ## Next Review Gate
 
-Before publishing a `v0.1` release, run Prompt Set D from `tests/subagent-validation-prompts.md` and record results in `tests/validation-results.md`.
+Before publishing a `v0.1` release, run Prompt Set D and Prompt Set E from `tests/subagent-validation-prompts.md` and record results in `tests/validation-results.md`.

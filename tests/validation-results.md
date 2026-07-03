@@ -64,3 +64,25 @@ Remaining Risk:
 
 - `plan-work` has not yet had a fresh subagent forward-test pass.
 - No-skill RED baseline testing is still missing for the suite.
+
+## 2026-07-03 AI Collab Router Addition
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Added `ai-collab` as the user-facing router skill.
+- Added router smoke, routing, and pressure scenarios.
+- Updated README and suite review so users can start from one skill.
+
+Findings:
+
+- User learning cost was high because users had to choose among eight child skills.
+- The router must not stay in router mode or duplicate child workflows.
+- Mixed requests should route the highest-risk gate first, especially ready or done claims without evidence.
+
+Remaining Risk:
+
+- `ai-collab` has not yet had a fresh subagent forward-test pass.
+- Prompt Set E is prepared but not executed.
+- No-skill RED baseline testing is still missing for the suite.

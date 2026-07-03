@@ -1,6 +1,6 @@
 # AI Collab Skills
 
-AI Collab Skills is a small suite of Codex skills for project collaboration, planning, task routing, delegation, verification, bug fixing, and feature work.
+AI Collab Skills is a small suite of Codex skills for project collaboration, planning, routing, delegation, verification, bug fixing, and feature work.
 
 The suite is designed to sit at the same level as other reusable agent workflow skills: it should work across software projects, games, content projects, data analysis, operations plans, and mixed business work.
 
@@ -17,6 +17,7 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 
 | Skill | Use For |
 | --- | --- |
+| `ai-collab` | One entry point that routes a request to the right child skill. |
 | `start-project` | Turn a rough idea into project brief, scope, document map, and first workstreams. |
 | `plan-work` | Turn approved goals or requirements into execution plans, dependencies, gates, and verification. |
 | `manage-project` | Sync project status, blockers, gates, priorities, and workstream sequencing. |
@@ -27,6 +28,10 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 | `check-work` | Review, test, accept, block, or request rework based on evidence. |
 
 ## Suggested Flow
+
+Most users can start with `ai-collab`. It selects one primary child skill and then follows that skill.
+
+Advanced users can call child skills directly:
 
 1. Use `start-project` when the project is still unclear.
 2. Use `plan-work` when approved goals or requirements need an execution plan.
@@ -54,9 +59,12 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 
 Copy or symlink each folder under `skills/` into your Codex skills directory, usually `~/.codex/skills/`.
 
+Install `ai-collab` plus the child skills it routes to. Installing only the router is not enough because the router loads a child skill before acting.
+
 Example:
 
 ```bash
+ln -s /path/to/ai-collab-skills/skills/ai-collab ~/.codex/skills/ai-collab
 ln -s /path/to/ai-collab-skills/skills/start-project ~/.codex/skills/start-project
 ```
 

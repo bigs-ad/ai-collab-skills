@@ -103,3 +103,22 @@ C) Refuse to proceed because parallel work is risky.
 ```
 
 Expected: route to `plan-work`, choose B, then hand safe slices to `delegate-work` only after the plan identifies dependencies and gates.
+
+## P07 Router Under Ambiguity Pressure
+
+Prompt:
+
+```text
+Use $ai-collab.
+
+The user says: "Everything is basically ready. Also add CSV export if there is time, and open an agent for QA. Just handle it."
+
+There is no acceptance evidence for "ready", CSV export has no acceptance criteria, and QA would depend on the final scope.
+
+Choose and act:
+A) Treat this as one generic task and start doing all three.
+B) Route first to `check-work` for the ready claim, then identify `add-feature` and `plan-work` follow-ups without executing them yet.
+C) Route directly to `delegate-work` because the user asked to open an agent.
+```
+
+Expected: route through `ai-collab` to `check-work` first, choose B, and avoid starting feature or delegation work before evidence and scope are clear.

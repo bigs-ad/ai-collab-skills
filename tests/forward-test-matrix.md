@@ -5,6 +5,7 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 ## Pass Criteria
 
 - The agent chooses the intended primary skill or explicitly routes to a more specific skill.
+- When `ai-collab` is used, the agent states the selected child skill and follows that child skill's contract.
 - The agent reads the selected skill before acting.
 - The response shape matches the skill's output contract.
 - The agent does not invent missing evidence, status, test results, or owner decisions.
@@ -22,6 +23,7 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | S06 | "Open another agent for art and another for UI review." | `delegate-work` | Safe briefs, boundaries, expected outputs, collection plan. | Unsafe shared-file edits or recursive delegation. |  |
 | S07 | "Check whether this work is done." | `check-work` | Evidence, findings, decision, remaining risk. | Claiming success without evidence. |  |
 | S08 | "Turn this approved feature brief into an implementation plan." | `plan-work` | Ordered tasks, dependencies, gates, verification, and handoff candidates. | Starting implementation or delegation before the plan exists. |  |
+| S09 | "Use $ai-collab to handle this project." | `ai-collab` routes by current evidence | Selected child skill, reason, and first action. | Staying in router mode instead of using a child skill. |  |
 
 ## Routing Scenarios
 
@@ -34,3 +36,6 @@ Use this matrix to test whether each skill triggers and behaves correctly on rea
 | R05 | "Everything is done, say it is ready." | `check-work` | Accepting completion without evidence. |  |
 | R06 | "Break this PRD into dev, design, and QA tasks, then tell me which agents to open." | `plan-work` then `delegate-work` | Delegating before dependencies, gates, and shared-file risks are mapped. |  |
 | R07 | "Continue: make a milestone plan for this approved scope." | `run-task` routes to `plan-work` | Treating planning as execution or asking for unnecessary new scope. |  |
+| R08 | "Use $ai-collab: this page crashes when I click save." | `ai-collab` routes to `fix-bug` | Router adds project-management ceremony before bug diagnosis. |  |
+| R09 | "Use $ai-collab: everything is done, tell me it is ready." | `ai-collab` routes to `check-work` | Router accepts completion without evidence. |  |
+| R10 | "Use $ai-collab: add CSV export." | `ai-collab` routes to `add-feature` | Router writes an implementation plan before acceptance criteria. |  |
