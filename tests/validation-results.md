@@ -248,3 +248,26 @@ Remaining Risk:
 
 - Tested locally on macOS shell behavior only.
 - No marketplace packaging or versioned release artifact exists yet.
+
+## 2026-07-03 Chinese README and GitHub Install Smoke Test
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Added `README.zh-CN.md` with Chinese install, usage, skill map, execution modes, governance principles, and current maturity notes.
+- Added a `README.md` link to the Chinese explanation.
+- Verified the pushed GitHub repository from a fresh clone.
+
+Checks:
+
+- `git clone --depth 1 https://github.com/bigs-ad/ai-collab-skills.git "$tmpbase/ai-collab-skills"`
+- `./scripts/install.sh --target "$tmpbase/codex-skills"` from the cloned repository.
+- Fresh clone produced 9 skill symlinks in the temporary target directory.
+- Fresh clone contained `README.zh-CN.md`.
+- `README.md` linked to the Chinese explanation.
+
+Remaining Risk:
+
+- Smoke test covered clone and local installation only, not Codex UI discovery after installation.
+- No marketplace packaging or versioned release artifact exists yet.
