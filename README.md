@@ -72,6 +72,6 @@ Repeat for the skills you want to enable.
 
 ## Publication Status
 
-This repository skeleton is ready for local iteration under the MIT License. The first with-skill forward-test pass is recorded in `tests/validation-results.md`.
+This repository skeleton is ready for local iteration under the MIT License. Forward-test and baseline evidence is recorded in `tests/validation-results.md`.
 
-Before describing the suite as mature or bulletproof, run a no-skill baseline campaign and repeated pressure tests.
+Before describing the suite as mature or bulletproof, run a larger baseline campaign with repeated pressure tests and real repository tasks.

@@ -123,3 +123,31 @@ Remaining Risk:
 
 - `handle this project` remains a naturally ambiguous phrase, though the router now gives a deterministic default.
 - No-skill RED baseline testing is still missing for the suite.
+
+## 2026-07-03 No-Skill Baseline Campaign
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Ran three fresh subagents without AI Collab Skills, Superpowers, local files, or expected answers.
+- Covered bug pressure, feature-masquerading-as-bug, status sync, unsafe delegation, planning pressure, completion pressure, mixed ready/feature/QA requests, and unknown project takeover.
+
+Results:
+
+- Bug and feature baseline: PASS_WITH_RISK. The agent rejected blind null-check patching and treated CSV export as a feature, not a bug.
+- Project management and delegation baseline: PASS. The agent separated unverified art status from engineering validation, rejected shared-file parallelism, and required an API/data contract before parallel backend/UI/QA work.
+- Completion and mixed-request baseline: PASS_WITH_RISK. The agent refused to claim ready without evidence, paused CSV/QA until scope was clear, and requested project context before takeover.
+
+Interpretation:
+
+- This campaign did not produce clear RED failures.
+- The suite's current evidence supports standardization, routing consistency, handoff structure, and documented gates.
+- The suite does not yet have evidence that it materially outperforms a strong general assistant on these pressure prompts.
+
+Remaining Risk:
+
+- Baseline sample size was small: one pass per prompt group.
+- Prompts may have been too explicit about missing evidence and shared-file risk.
+- No baseline covered real repository edits, long-running drift, or multi-turn coordination.
+- Do not market the suite as proven superior until larger repeated baseline testing finds measurable deltas.

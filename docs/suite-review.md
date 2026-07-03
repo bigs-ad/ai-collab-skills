@@ -27,13 +27,14 @@ Status: PASS_WITH_RISK
 - Updated README flow so `delegate-work` follows planned handoff boundaries.
 - Added `ai-collab` to reduce user learning cost while keeping detailed workflows in child skills.
 - Forward-tested Prompt Set D and Prompt Set E, then clarified `ai-collab` and `run-task` routing boundaries.
+- Ran a no-skill baseline campaign; it did not produce clear RED failures, so claims about measurable improvement must stay conservative.
 
 ## Remaining Risks
 
 - `handle this project` remains naturally ambiguous, but `ai-collab` now routes generic unknown work to `run-task` QuickProbe unless the user explicitly asks for status, priorities, sequencing, blockers, or next action.
-- The suite still lacks a no-skill RED baseline campaign, so it should not be described as bulletproof.
+- The current no-skill baseline was too small and produced PASS/PASS_WITH_RISK results, so it does not prove this suite outperforms a strong general assistant.
 - Installation is manual symlink/copy only; no installer script or marketplace packaging exists yet.
 
 ## Next Review Gate
 
-Before publishing a `v0.1` release, run a no-skill RED baseline campaign and record the comparison in `tests/validation-results.md`.
+Before publishing a `v0.1` release, run a larger baseline campaign with more repetitions, weaker prompts, and real repository tasks.
