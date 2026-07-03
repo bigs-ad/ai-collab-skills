@@ -225,3 +225,26 @@ Remaining Risk:
 
 - Prompt Set G was one focused pass, not repeated.
 - Multi-turn real-task drift evidence is still missing.
+
+## 2026-07-03 Local Installer Addition
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Added `scripts/install.sh` to install all suite skills together.
+- Updated `README.md` to prefer the installer and keep manual symlink installation as a fallback.
+- Updated `docs/suite-review.md` so installation risk reflects the new local script.
+
+Checks:
+
+- `bash -n scripts/install.sh`
+- `scripts/install.sh --target "$tmpdir" --dry-run`
+- `scripts/install.sh --target "$tmpdir"` produced 9 skill symlinks.
+- Re-running symlink install skipped the existing 9 links without error.
+- `scripts/install.sh --target "$tmpdir" --copy` produced 9 copied `SKILL.md` files.
+
+Remaining Risk:
+
+- Tested locally on macOS shell behavior only.
+- No marketplace packaging or versioned release artifact exists yet.

@@ -60,18 +60,33 @@ Advanced users can call child skills directly:
 
 ## Local Install
 
-Copy or symlink each folder under `skills/` into your Codex skills directory, usually `~/.codex/skills/`.
+Recommended:
 
-Install `ai-collab` plus the child skills it routes to. Installing only the router is not enough because the router loads a child skill before acting.
+```bash
+git clone https://github.com/bigs-ad/ai-collab-skills.git
+cd ai-collab-skills
+./scripts/install.sh
+```
 
-Example:
+The installer links every folder under `skills/` into `${CODEX_HOME:-$HOME/.codex}/skills`. Installing only `ai-collab` is not enough because the router loads child skills before acting.
+
+Useful options:
+
+```bash
+./scripts/install.sh --copy
+./scripts/install.sh --target /path/to/codex/skills
+./scripts/install.sh --force
+./scripts/install.sh --dry-run
+```
+
+Manual fallback:
 
 ```bash
 ln -s /path/to/ai-collab-skills/skills/ai-collab ~/.codex/skills/ai-collab
 ln -s /path/to/ai-collab-skills/skills/start-project ~/.codex/skills/start-project
 ```
 
-Repeat for the skills you want to enable.
+Repeat for every child skill you want the router to use.
 
 ## Publication Status
 
