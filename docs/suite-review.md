@@ -32,14 +32,15 @@ Status: PASS_WITH_RISK
 - Added Drift Guard fields and scenarios to reduce assumption drift after context gaps, handoffs, and unsupported readiness claims.
 - Forward-tested Prompt Set G and added direct source-of-truth stop conditions to `manage-project` and `plan-work`.
 - Added a local installer script so users can install the router and all child skills together instead of manually linking each folder.
+- Added and ran a Drift Guard multi-turn smoke baseline; both no-skill and with-skill arms preserved evidence gates, so this supports safety coverage but not superiority claims.
 
 ## Remaining Risks
 
 - `handle this project` remains naturally ambiguous, but `ai-collab` now routes generic unknown work to `run-task` QuickProbe unless the user explicitly asks for status, priorities, sequencing, blockers, or next action.
-- Drift Guard passed a focused subagent forward-test with risk; multi-turn real-task evidence is still missing.
+- Drift Guard now has one multi-turn smoke baseline with risk; repeated runs across different repository types are still missing.
 - The current no-skill baseline was too small and produced PASS/PASS_WITH_RISK results, so it does not prove this suite outperforms a strong general assistant.
 - Installation now has a local script, but there is still no marketplace packaging or released versioned artifact.
 
 ## Next Review Gate
 
-Before publishing a `v0.1` release, run `tests/no-skill-baseline-protocol.md` with the tasks in `tests/real-repo-baseline-tasks.md`, then record the deltas in `tests/validation-results.md`.
+Before publishing a `v0.1` release, run a stronger repeated campaign from `tests/no-skill-baseline-protocol.md`, `tests/real-repo-baseline-tasks.md`, and `tests/drift-guard-multiturn-baseline.md`, then record the deltas in `tests/validation-results.md`.

@@ -59,6 +59,7 @@ Advanced users can call child skills directly:
 - `tests/validation-results.md`: validation history and evidence.
 - `tests/no-skill-baseline-protocol.md`: repeatable no-skill versus with-skill baseline protocol.
 - `tests/real-repo-baseline-tasks.md`: real repository tasks for stronger baseline campaigns.
+- `tests/drift-guard-multiturn-baseline.md`: multi-turn context drift smoke and baseline protocol.
 
 ## Local Install
 
