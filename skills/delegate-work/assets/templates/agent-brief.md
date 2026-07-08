@@ -16,6 +16,12 @@
 - Not allowed:
 - Files or systems to avoid:
 
+## Approval Context
+
+- Approved plan:
+- Approval scope:
+- Gate owner:
+
 ## Inputs
 
 -

@@ -20,6 +20,19 @@ Release Readiness: `v0.1 candidate` is acceptable for local installation and eva
 | `delegate-work` | Safe handoff briefs and delegated-work coordination. | Deciding readiness or skipping dependency mapping. |
 | `check-work` | Evidence-based review, acceptance, readiness, and gate decisions. | Scheduling and progress sync. |
 
+## Generic Governance Coverage
+
+| Kernel Piece | Current Owner | Coverage | Remaining Boundary |
+| --- | --- | --- | --- |
+| Source of truth / evidence | `ai-collab`, `run-task`, `plan-work`, `manage-project`, `check-work` | Explicit evidence labels and stop conditions prevent memory or reported status from becoming verified state. | Project-specific source docs still belong in the project. |
+| State machine | `ai-collab` plus child skills | Added a generic fallback state model for projects without their own governance docs. | Do not prescribe domain-specific phases such as game, product, or platform milestones. |
+| Pipeline | `run-task` and child skills | QuickProbe, Candidate, Formalize, and GateReview remain the general execution pipeline. | Domain pipelines stay in project docs or specialized skills. |
+| Task card | `run-task`, `plan-work` | Added a generic task-card template for durable scoped work that is smaller than a full execution plan. | Projects may replace it with their own issue, ticket, or plan format. |
+| Gate | `ai-collab`, `plan-work`, `manage-project`, `check-work` | Gates cover owner decisions, unsafe parallelism, missing evidence, readiness, and irreversible changes. | Gate owners and exact evidence are project-specific. |
+| Plan Approval Gate | `ai-collab`, `start-project`, `run-task`, `add-feature`, `fix-bug`, `plan-work`, `manage-project`, `delegate-work` | Modification, bug-fix, new-requirement, source-of-truth update, project-state update, and delegated execution requests now require a shown plan plus explicit user approval before durable work. | Read-only context loading is still allowed so the plan can be grounded. |
+| PM Control Mode | `ai-collab`, `manage-project`, `plan-work`, `delegate-work`, `check-work` | The main conversation can act as PM for requirements, source-of-truth docs, plans, gates, status, and synthesis while approved delegates perform execution. | Real subagent availability depends on the host Codex environment. |
+| Verification / writeback | `run-task`, `check-work`, templates | Reports and task cards now keep checks, deferred checks, and writeback visible. | Actual commands and artifacts remain project-specific. |
+
 ## Findings Fixed
 
 - Added `plan-work` because planning was spread across `start-project`, `add-feature`, `manage-project`, and `run-task`.
@@ -39,6 +52,9 @@ Release Readiness: `v0.1 candidate` is acceptable for local installation and eva
 - Ran a weak-source matched pair where repository docs used candidate language and stakeholder sentiment instead of explicit blockers; both arms still preserved readiness gates.
 - Added conservative `v0.1` candidate release notes with explicit claim boundaries.
 - Created `v0.1.0` prerelease and verified release-tag install into a temporary Codex skills target.
+- Added the generic governance kernel wording and a reusable task-card template: source of truth / evidence -> state machine -> pipeline -> task card -> gate -> verification and writeback.
+- Added Plan Approval Gate and PM Control Mode so direct edits, bug fixes, new requirements, and subagent launches wait for user-approved plans.
+- Closed follow-up loopholes found by real subagent smoke: `manage-project` source-of-truth updates, `delegate-work` project-control wording, and `start-project` post-brief approval.
 
 ## Remaining Risks
 

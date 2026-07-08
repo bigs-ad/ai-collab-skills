@@ -26,6 +26,13 @@
 | --- | --- | --- | --- |
 |  |  |  | Open |
 
+## Approval Gate
+
+- Source-of-truth updates proposed:
+- Plan shown to user:
+- User approval:
+- Approval scope:
+
 ## Next Step
 
 -

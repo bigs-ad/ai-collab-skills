@@ -12,6 +12,7 @@ description: Use when approved goals, briefs, PRDs, specs, bug scopes, feature s
 3. Split work into ordered tasks with dependencies, gates, and verification for each task.
 4. Mark tasks as sequential, concurrent, delegated, blocked, or not-yet-ready.
 5. Identify which tasks can feed `delegate-work`, which should stay local, and which need `check-work`.
+6. Present the execution plan to the user and wait for explicit approval before implementation or delegation begins.
 
 ## Stop Conditions
 
@@ -19,7 +20,7 @@ If the goal is still unclear, use `start-project` or `add-feature` first. If the
 
 If the approved source of truth is unavailable, stop after identifying the missing source and the shortest recovery action. Do not produce a formal execution plan from memory, reported claims, or assumptions.
 
-Do not start implementation or launch agents from this skill. Produce the plan first, then route execution.
+Do not start implementation or launch agents from this skill. Produce the plan first, then route execution only after user approval.
 
 ## Output
 
