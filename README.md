@@ -15,6 +15,31 @@ The suite is designed to sit at the same level as other reusable agent workflow 
 - Separate source-of-truth docs, temporary agent notes, implementation work, and verification evidence.
 - Make delegation safer by defining bounded briefs and collecting structured results.
 - Make drift easier to detect by keeping assumptions, evidence, blockers, and next action visible.
+- Require a visible plan and explicit approval before modifications, bug fixes, new requirements, or delegated execution.
+
+## Governance Kernel
+
+The suite generalizes project work as:
+
+```text
+source of truth / evidence
+-> state machine
+-> pipeline
+-> task card
+-> gate
+-> verification and writeback
+```
+
+- State machine: keep work in known states such as intake, classified, planned, implementing, verifying, ready, done, or blocked.
+- Pipeline: choose the lightest safe process for the task type and execution mode.
+- Task card: make durable work explicit with objective, non-goals, allowed scope, forbidden scope, checks, and writeback.
+- Gate: stop for owner decisions or missing evidence before scope, architecture, platform, budget, release, or irreversible changes.
+
+## Plan Approval And PM Control
+
+For any modification, bug fix, or new/changed requirement, the suite should first load enough read-only context to make a plan, show that plan to the user, and wait for explicit approval before implementation, file edits, subagent launch, or other durable state changes.
+
+PM Control Mode keeps the current conversation as the project manager: it collects requirements, updates source-of-truth docs and plans, controls gates, and synthesizes results. Actual execution is delegated only after user approval, and multiple subagents are used only when their scopes are disjoint, read-only, or sequenced by gates.
 
 ## Skills
 
@@ -43,6 +68,8 @@ Advanced users can call child skills directly:
 5. Use `fix-bug` or `add-feature` when the task type is clear.
 6. Use `delegate-work` after `plan-work` identifies safe handoff boundaries.
 7. Use `check-work` before calling work complete.
+
+When using PM Control Mode, keep the main conversation in `manage-project` / `plan-work` / `delegate-work` coordination and send implementation to approved delegates instead of doing it directly in the PM thread.
 
 ## Execution Modes
 

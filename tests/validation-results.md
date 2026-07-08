@@ -1,5 +1,33 @@
 # Validation Results
 
+## 2026-07-08 Generic Governance Kernel Alignment
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Added explicit generic governance kernel wording: source of truth / evidence -> state machine -> pipeline -> task card -> gate -> verification and writeback.
+- Added `skills/run-task/assets/templates/task-card.md` for durable scoped work that is smaller than a full `plan-work` execution plan.
+- Kept the suite general-purpose; no project-specific game, Cocos, art, platform, or release-stage rules were added.
+
+RED Checks:
+
+- `test -f skills/run-task/assets/templates/task-card.md`: failed before the change.
+- `rg -n "state machine|task card|pipeline" skills/run-task/SKILL.md skills/ai-collab/SKILL.md README.md docs/suite-review.md`: no matches before the change.
+
+GREEN Checks:
+
+- `test -f skills/run-task/assets/templates/task-card.md && rg -n "state machine|task card|pipeline|Governance Kernel|通用治理内核" skills/run-task/SKILL.md skills/ai-collab/SKILL.md README.md README.zh-CN.md docs/suite-review.md`: passed.
+- `quick_validate.py skills/ai-collab`: passed using a temporary venv with `PyYAML`.
+- `quick_validate.py skills/run-task`: passed using a temporary venv with `PyYAML`.
+- Placeholder scan for `TODO`, `[TODO]`, `Structuring This Skill`, `placeholder`, and `TBD`: no matches in changed skill/docs targets.
+- `git diff --check`: passed.
+
+Remaining Risk:
+
+- This was a static validation and light documentation TDD pass, not a fresh subagent forward-test.
+- The new task-card template should be forward-tested on future generic retained-work tasks before claiming stronger behavior guarantees.
+
 ## 2026-07-03 Local Static Review
 
 Status: PASS_WITH_RISK
@@ -478,3 +506,131 @@ Remaining Risk:
 - This was a temporary-target install smoke, not a live install into the user's real Codex skills directory.
 - Codex App restart and UI skill discovery were not verified.
 - This does not add evidence for production drift reduction or superiority over strong general assistants.
+
+## 2026-07-08 Plan Approval Gate And PM Control Mode
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Added Plan Approval Gate language to `ai-collab`, `run-task`, `add-feature`, `fix-bug`, `plan-work`, and `delegate-work`.
+- Added PM Control Mode to `ai-collab`, `manage-project`, and delegation guidance.
+- Updated templates so plans, task cards, bug reports, feature briefs, execution plans, and agent briefs can record user approval scope.
+- Added forward-test and pressure scenarios for direct-work pressure and PM-led multi-agent coordination.
+
+Red Check:
+
+- `rg -n "Plan Approval Gate|PM Control Mode|PM-agent|PM agent|approval before implementation|批准后才能|用户批准" skills tests README.md README.zh-CN.md docs/suite-review.md`: FAIL before edits, no matches.
+
+Verification:
+
+- `quick_validate.py skills/ai-collab`: PASS.
+- `quick_validate.py skills/run-task`: PASS.
+- `quick_validate.py skills/add-feature`: PASS.
+- `quick_validate.py skills/fix-bug`: PASS.
+- `quick_validate.py skills/plan-work`: PASS.
+- `quick_validate.py skills/delegate-work`: PASS.
+- `quick_validate.py skills/manage-project`: PASS.
+- `rg -n "TODO|TBD|FIXME|PLACEHOLDER|\\[TODO\\]|your skill|lorem|example.com" ...`: PASS_WITH_NOTES; no active skill/docs/test-scenario placeholders, while `tests/validation-results.md` itself contains historical validation mentions of placeholder terms.
+- `git diff --check`: PASS.
+- Green static scan for `Plan Approval Gate`, `PM Control Mode`, and `explicit user approval`: PASS.
+
+Interpretation:
+
+- The suite now treats modification, bug-fix, new-requirement, and delegated-execution requests as plan-first work.
+- AI Collab-managed projects should align the plan with source-of-truth artifacts or task cards before approval.
+- Non-AI-Collab projects still get a concise plan and approval gate before implementation.
+- PM Control Mode keeps the current conversation as coordinator and routes execution to approved delegates when safe.
+
+Remaining Risk:
+
+- This validation is structural and scenario-based; no live multi-subagent launch was executed.
+- Host environments may expose different subagent tools, so PM Control Mode still needs a real Codex multi-agent smoke test.
+
+## 2026-07-08 PM Control Multi-Agent Smoke And Loophole Closure
+
+Status: PASS_WITH_RISK
+
+Scope:
+
+- Ran a real Codex multi-agent smoke with two read-only explorer subagents:
+  - One reviewed Plan Approval Gate / PM Control Mode skill-rule coverage.
+  - One reviewed test matrix, pressure scenarios, README, and suite-review coverage.
+- Closed the rule-review gaps by updating `manage-project`, `delegate-work`, and `start-project`.
+- Added approval fields to `manage-project` status reports and `start-project` briefs.
+- Added P11, P12, and P13 pressure scenarios plus S16, S17, R15, and R16 matrix rows.
+
+Subagent Results:
+
+- Documentation/test coverage reviewer: PASS_WITH_RISK. It found no critical/high/medium issue and confirmed the docs are general-purpose, not game-specific.
+- Rule coverage reviewer: NEEDS_REWORK. It found three gaps:
+  - `manage-project` direct source-of-truth/status updates lacked a non-PM Plan Approval Gate.
+  - `delegate-work` wording blurred project control versus approved execution artifacts.
+  - `start-project` could treat initial "continue" wording as implementation approval.
+- Follow-up read-only reviewer after fixes: PASS_WITH_RISK. It confirmed the three gaps were closed and suggested only wording/test-coverage tightening, which was added.
+
+Red Checks:
+
+- `rg -n "source-of-truth.*approval|Approval Gate|wait for explicit approval" skills/manage-project/SKILL.md skills/manage-project/assets/templates/status-report.md`: insufficient before fix; only PM-mode approval wording existed.
+- `rg -n "coordinating agent owns project control|delegated agents may change approved execution artifacts|approved execution artifacts" skills/delegate-work/SKILL.md`: FAIL before fix.
+- `rg -n "Approval must arrive after the brief or plan is shown|plan shown|explicit approval after" skills/start-project/SKILL.md`: FAIL before fix.
+- `rg -n "Do not start implementation unless the user explicitly asks to continue|Only the coordinating agent should change project state" ...`: matched old loophole wording before fix.
+
+Green Checks:
+
+- `manage-project` now requires plan plus explicit approval before source-of-truth updates, status document updates, project-state changes, implementation, delegation, or subagent launch.
+- `delegate-work` now states the coordinator owns requirements, scope, gates, integration, and final status while delegates may change approved execution artifacts within their briefs.
+- `start-project` now requires approval after the brief or plan is shown, with clear approval scope.
+- P11/P12/P13 and S16/S17/R15/R16 cover the new loopholes.
+
+Verification:
+
+- `quick_validate.py skills/start-project`: PASS.
+- `quick_validate.py skills/manage-project`: PASS.
+- `quick_validate.py skills/delegate-work`: PASS.
+- `git diff --check`: PASS.
+- Placeholder scan over changed skill folders and scenario docs: PASS; no active matches.
+
+Remaining Risk:
+
+- The live multi-agent smoke used read-only reviewer agents, not execution agents that edited approved artifacts.
+- A later disposable-repo smoke should test an approved delegate changing only its assigned execution artifact while the PM thread retains project control.
+
+## 2026-07-08 PM Control Delegate Execution Smoke
+
+Status: PASS
+
+Scope:
+
+- Created disposable git fixture at `/tmp/ai-collab-pm-smoke.3kL2UT`.
+- Fixture separated project-control files from approved execution artifacts:
+  - Project control: `project-control/PROJECT_PLAN.md`, `project-control/SCOPE.md`, `project-control/GATES.md`.
+  - Approved execution artifacts: `docs/api.md`, `content/ui-copy.md`.
+- Spawned two worker subagents in parallel with disjoint write scopes:
+  - Worker A could only edit `docs/api.md`.
+  - Worker B could only edit `content/ui-copy.md`.
+- The PM thread retained requirements, scope, gates, integration, and final status.
+
+Verification:
+
+- Worker A reported only `docs/api.md` changed and escalated any project-control, scope, gate, release-scope, API-contract, or new-endpoint changes back to PM.
+- Worker B reported only `content/ui-copy.md` changed and escalated project-control, release-scope, or gate changes back to PM.
+- `git status --short` in the fixture showed only:
+  - `M content/ui-copy.md`
+  - `M docs/api.md`
+- `git diff --name-only` showed only:
+  - `content/ui-copy.md`
+  - `docs/api.md`
+- `git diff -- project-control/PROJECT_PLAN.md project-control/SCOPE.md project-control/GATES.md`: PASS; no diff.
+- `git diff -- docs/api.md content/ui-copy.md`: PASS; changes stayed within approved artifacts.
+
+Interpretation:
+
+- PM Control Mode successfully allowed delegated agents to edit approved execution artifacts.
+- Project control stayed with the coordinating thread: no project-control, scope, gate, or release-scope files changed.
+- Parallel workers observed each other's uncommitted changes without overwriting or expanding scope.
+
+Remaining Risk:
+
+- This was a disposable markdown fixture, not a production repository.
+- No staged commit, PR, or live release workflow was tested.

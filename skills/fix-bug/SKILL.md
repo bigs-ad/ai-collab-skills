@@ -8,11 +8,13 @@ description: Use when the user reports a bug, error, crash, failing test, regres
 ## Workflow
 
 1. Capture observed behavior, expected behavior, environment, and severity.
-2. Reproduce before changing implementation when possible.
-3. Minimize the failing case.
-4. Identify whether this is a real bug, unclear requirement, or new feature request.
-5. Add or update a regression check when the fix is retained.
-6. Fix narrowly, verify, and report remaining risk.
+2. Do only read-only context loading needed to build a bug-fix plan.
+3. Align the bug-fix plan with any AI Collab source-of-truth or task card, present it, and wait for explicit user approval before implementation changes, patches, delegation, or durable state changes.
+4. Reproduce before changing implementation when possible.
+5. Minimize the failing case.
+6. Identify whether this is a real bug, unclear requirement, or new feature request.
+7. Add or update a regression check when the fix is retained.
+8. Fix narrowly, verify, and report remaining risk.
 
 ## Output
 

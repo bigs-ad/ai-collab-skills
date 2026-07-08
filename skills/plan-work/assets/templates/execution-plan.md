@@ -33,6 +33,12 @@
 | --- | --- | --- | --- |
 |  | Yes/No |  |  |
 
+## Approval Gate
+
+- Plan shown to user:
+- User approval:
+- Approval scope:
+
 ## Verification Plan
 
 | Check | When | Evidence | Owner |

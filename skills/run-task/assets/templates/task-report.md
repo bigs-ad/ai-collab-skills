@@ -7,6 +7,12 @@
 - Timebox:
 - Assumptions:
 
+## Approval Gate
+
+- Plan shown:
+- User approval:
+- Approval scope:
+
 ## Work Done
 
 -

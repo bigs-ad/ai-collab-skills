@@ -29,6 +29,12 @@
 
 -
 
+## Approval Gate
+
+- Plan shown to user:
+- User approval:
+- Approval scope:
+
 ## Verification
 
 -

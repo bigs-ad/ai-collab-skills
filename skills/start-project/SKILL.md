@@ -17,4 +17,4 @@ description: Use when the user has a rough idea, new product, internal tool, con
 
 Use `assets/templates/project-brief.md` when creating a formal brief.
 
-Do not start implementation unless the user explicitly asks to continue.
+Do not start implementation from the initial request. Approval must arrive after the brief or plan is shown, and the approval scope must be clear.

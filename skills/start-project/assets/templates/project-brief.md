@@ -37,6 +37,12 @@
 | --- | --- | --- | --- |
 |  | Yes/No |  |  |
 
+## Approval Gate
+
+- Brief or plan shown to user:
+- User approval:
+- Approval scope:
+
 ## Next Step
 
 -
